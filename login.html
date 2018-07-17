@@ -1,0 +1,276 @@
+<!--
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var response = "";
+
+        function login() {
+            // Create a new object to contain the data in the loginForm.
+            // We assign the new object to a variable called "credentials".
+            var credentials = new Object();
+
+            credentials.username = document.getElementById("username").value;
+            credentials.pw = document.getElementById("pw").value;
+
+            var request = new XMLHttpRequest();
+
+            request.open("POST", "/login", true);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.onload = function() {
+                response = JSON.parse(request.responseText);
+                document.getElementById("loginForm").style.display = "none";
+
+                // Check the message from the server. If it is '1', then login is successful,
+                // in this case redirect to main.html page using the built-in 'window.location' 
+                // property and create a query string with username at the end of the URL.
+                // If message is not '1', print out to the div with id='message'.
+                if (response.message == "1")
+                    window.location = "index.html?username=" + credentials.username;
+                else
+                    document.getElementById("message").textContent = response.message;
+            };
+
+            request.send(JSON.stringify(credentials));
+        }
+    </script>
+
+</head>
+
+<body>
+    <form id="loginForm">
+        <label>Username: </label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label>Password: </label>
+        <input type="password" id="pw" name="pw">
+        <input type="button" onclick="login()" value="Submit">
+    </form>
+    <div id="message"></div>
+</body>
+
+</html>
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Brisque</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/styles.css">
+      
+      <script>
+        var response = "";
+
+        function login() {
+            // Create a new object to contain the data in the loginForm.
+            // We assign the new object to a variable called "credentials".
+            var credentials = new Object();
+
+            credentials.username = document.getElementById("username1").value;
+            credentials.pw = document.getElementById("pw1").value;
+
+            var request = new XMLHttpRequest();
+
+            request.open("POST", "/login", true);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.onload = function() {
+                response = JSON.parse(request.responseText);
+//                document.getElementById("loginForm").style.display = "none";
+
+                // Check the message from the server. If it is '1', then login is successful,
+                // in this case redirect to main.html page using the built-in 'window.location' 
+                // property and create a query string with username at the end of the URL.
+                // If message is not '1', print out to the div with id='message'.
+                if (response.message == "1")
+                    window.location = "main.html?username=" + credentials.username;
+                else
+                    document.getElementById("message1").textContent = response.message;
+            };
+
+            request.send(JSON.stringify(credentials));
+        }
+          
+          function register() {
+              // Create a new object to contain the data in the loginForm.
+              // We assign the new object to a variable called "credentials".
+              var credentials = new Object();
+
+              credentials.username = document.getElementById("username2").value;
+              credentials.email = document.getElementById("email").value;
+              credentials.password = document.getElementById("pw2").value;
+              credentials.postal = document.getElementById("postalCode").value;
+              
+              
+              if (document.getElementById("receiveNews").checked == true) 
+                  credentials.receivingNews = 1
+              else 
+                  credentials.receivingNews = 0
+
+              var request = new XMLHttpRequest();
+
+              request.open("POST", "/addAccount", true);
+              request.setRequestHeader("Content-Type", "application/json");
+              request.onload = function() {
+                  response = JSON.parse(request.responseText);
+                  
+                  if (response.message == "1")
+                      document.getElementById("message3").textContent = "Account successfully registered";
+                  else
+                      document.getElementById("message2").textContent = response.message;
+              };
+
+              request.send(JSON.stringify(credentials));
+        }
+          
+      </script>
+  </head>
+  <body>
+      <header>
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/BrisqueLogo.png" height="36">
+                </a>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav mr-auto">
+                      <li class="list-inline-item text-light mx-2 my-auto">
+                          <a class="text-dark" href="#"><strong>Home</strong></a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-auto">
+                          <a class="text-muted" href="about.html">About us</a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-auto">
+                          <a class="text-muted" href="faq.html">Questions?</a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-auto">
+                          <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Order a recipe
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="simpleRecipes.html">Simple</a>
+                                  <a class="dropdown-item" href="intermediateRecipes.html">Intermediate</a>
+                                  <a class="dropdown-item" href="complexRecipes.html">Complex</a>
+                              </div>
+                            </div>
+                        </li>
+                    </ul>
+                      
+
+                          <form class="form-inline">
+                              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
+                          </form>
+                          <a class="btn btn-outline-dark my-2 mr-sm-2" href="login.html" role="button">Login</a>
+<!--                          <button type="button" class="btn btn-outline-dark my-2 mr-sm-2">Login</button>-->
+
+                          </div>
+            </nav>
+      </header>
+      
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+              <h1 class="display-4 text-center">Accounts</h1>
+          </div>
+      </div>
+      
+      <div class="d-flex flex-row w-75 mx-auto">
+          <div class="d-flex flex-column w-75 mx-auto border-right">
+          
+              <h3 class="text-center">Login</h3>
+          
+              <form class="mr-3">
+                  <div class="form-group">
+                      <label for="username1">Username</label>
+<!--              <input type="text" class="form-control" id="username1" name="username1" aria-describedby="emailHelp" placeholder="Username">-->
+                      <input type="text" class="form-control" id="username1" aria-describedby="emailHelp" placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                      <label for="pw1">Password</label>
+<!--                  <input type="password" class="form-control" id="pw1" name="pw1" placeholder="Password">-->
+                      <input type="password" class="form-control" id="pw1" placeholder="Password">
+                  </div>
+                  
+                  <input type="button" class="btn btn-primary" onclick="login()" value="Login">
+<!--                  <input type="submit" class="btn btn-primary" value="Login">-->
+<!--              <button type="submit" class="btn btn-primary" onclick="login()">Submit</button>-->
+              
+                  <p id="message1" class="text-danger"></p>
+              </form>
+          
+          </div>
+      
+          <div class="d-flex flex-column w-75 mx-auto">
+                
+              <h3 class="text-center">Register</h3>
+                
+              <form class="ml-3">
+                  <div class="form-group">
+                      <label for="username2">Username</label>
+                      <input type="text" class="form-control" id="username2" aria-describedby="emailHelp" placeholder="Username" required>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                      
+                  <div class="form-group">
+                      <label for="pw2">Password</label>
+                      <input type="password" class="form-control" id="pw2" placeholder="Password" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="birthdate">Birth date</label>
+                      <input type="text" class="form-control" id="birthdate" placeholder="dd/mm/yyyy" required>
+                  </div>       
+                  
+                  <div class="form-group">
+                      <label for="postalCode">Postal Code</label>
+                      <input type="text" class="form-control" id="postalCode" placeholder="500123" required>
+                  </div>
+                    
+<!--                    <button type="submit" class="btn btn-primary">Submit</button>-->
+                  
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="receiveNews" required>
+                      <label class="form-check-label" for="receiveNews">
+                          Sign up for newsletter
+                      </label>
+                  </div>
+                  
+                  <input type="button" class="btn btn-primary" onclick="register()" value="Register">
+                    
+                  <p id="message2" class="text-danger"></p>
+                  <p id="message3" class="text-success"></p>
+              </form>
+          
+          </div>
+          
+      </div>
+      
+      <br><br>
+
+      <!-- Javascript stuff -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/w3.js"></script>
+    <script> w3.includeHTML(); </script>
+  </body>
+    
+    <footer class="footer bg-dark">
+        <div class="container">
+            <span class="text-muted">
+                Designed with bootstrap. Brisque is made by a Mr. Tay Heng Jing.
+            </span>
+        </div>
+    </footer>
+    
+</html>

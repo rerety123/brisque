@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+	<head>
+		<title>Ready-To-Cook Meals - Brisque</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Food delivery for cooking">
+		<meta name="keywords" content="food, delivery, cook, fresh">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+    
+    <!-- TODO: 
+            Get the getData() functions working in Postman before worrying about the displayData() functions
+            See: W7.2
+            Properly implement the addAccount/Register thing to stop it from submitting. Use client or server side, Java or HTML validation, whatever works
+            Work on getting the Navbar syntax to be the same as the Bootstrap docs
+            Check out example websites in the Week 1 Introduction to HTML slides - Use of whitespace seems like a pretty big thing, for one
+            Footer with: Logo in black, Customer service
+            Map API
+            Centralize the height of the carousel text
+            Make carousel go slower so it can be read more easily
+            Fade-in for pictures
+    -->
+    
+	<body>
+<!--
+        <header>
+            <nav class="navbar navbar-light bg-light justify-content-between">
+                <div class="row">
+                    <div class="col-md-auto">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/BrisqueLogo.png" height="36">
+                </a>
+                    </div>
+                
+                    <div class="col-md-auto">
+                <div class="row justify-content-start">
+                    <ul class="list-inline my-auto">
+                      <li class="list-inline-item text-light mx-2 my-2">
+                          <a class="text-dark" href="#"><strong>Home</strong></a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-2">
+                          <a class="text-muted" href="about.html">About us</a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-2">
+                          <a class="text-muted" href="faq.html">Questions?</a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-2">
+                          <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Order a recipe
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="simpleRecipes.html">Simple</a>
+                                  <a class="dropdown-item" href="intermediateRecipes.html">Intermediate</a>
+                                  <a class="dropdown-item" href="complexRecipes.html">Complex</a>
+                              </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                </div>
+
+                    <div class="col-md-auto">
+                	<form class="form-inline">
+                    		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    		<button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="search.html">Search</button>
+                	</form>
+                        </div>
+                        
+
+            </nav>
+        </header>
+-->
+        
+        
+      <header>
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/BrisqueLogo.png" height="36">
+                </a>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav mr-auto">
+                      <li class="list-inline-item text-light mx-2 my-auto">
+                          <a class="text-dark" href="#"><strong>Home</strong></a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-auto">
+                          <a class="text-muted" href="about.html">About us</a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-auto">
+                          <a class="text-muted" href="faq.html">Questions?</a> 
+                        </li>
+                      <li class="list-inline-item text-light mx-2 my-auto">
+                          <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Order a recipe
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="simpleRecipes.html">Simple</a>
+                                  <a class="dropdown-item" href="intermediateRecipes.html">Intermediate</a>
+                                  <a class="dropdown-item" href="complexRecipes.html">Complex</a>
+                              </div>
+                            </div>
+                        </li>
+                    </ul>
+                      
+
+                          <form class="form-inline">
+                              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
+                          </form>
+                          <a class="btn btn-outline-dark my-2 mr-sm-2" href="login.html" role="button">Login</a>
+<!--                          <button type="button" class="btn btn-outline-dark my-2 mr-sm-2">Login</button>-->
+
+                          </div>
+            </nav>
+      </header>
+        
+        <!-- big brisque logo with background of some food
+        <div class="d-flex">
+			<div class="row justify-content-center">
+                <div class="card bg-dark text-white rounded-0">
+                    <img id="darken-image" class="card-img rounded-0" src="images/powderBoard.jpg" alt="Street Vendors" style="object-fit: cover; object-position: center; height: 20em">
+                    <div class="card-img-overlay d-flex">
+                        <div class="my-auto mx-auto">
+                            <img src="images/BrisqueLogoWhite.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        -->    
+        <div class="d-flex">
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="object-fit: cover; height: 40em ">
+				<img class="d-block w-100" id="darken-image" src="images/streetVendors.jpg" alt="First slide"> 
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="display-4 text-left">Cost-effective</h5>
+                                <p class="text-left">Saves money by only delivering what you need for your chosen recipe.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="object-fit: cover; height: 40em">
+                            <img class="d-block w-100 d-inline-block" id="darken-image" src="images/foodBunchCropped.jpg" alt="Second slide" style="">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="display-4">Healthy</h5>
+                                <p class="">Gives you fresh ingredients to prepare a meal right at home, ensuring great food quality.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="object-fit: cover; height: 40em">
+                            <img class="d-block w-100" id="darken-image" src="images/cityCars.jpg" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="display-4 text-right">Fast</h5>
+                                <p class="text-right">Brisque's dispatch software is efficient, guaranteeing that the items you need are delivered to you swiftly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                                
+        </div>
+
+        
+        <!-- big cards
+            <div class="d-flex flex-column mx-auto w-75">
+			<div class="card bg-dark text-white rounded-0">
+				<img id="darken-image" class="card-img rounded-0" src="images/streetVendors.jpg" alt="Street Vendors">
+				<div class="card-img-overlay d-flex">
+					<div class="my-auto mx-auto" style="text-shadow: 2px 2px 4px #000000">
+						<h1 class="card-title font-weight-bold text-center">Cost-effective</h1>
+						<p class="card-text text-center">Saves money by only delivering what you need for your chosen recipe.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card bg-dark text-white rounded-0">
+				<img id="darken-image" class="card-img rounded-0" src="images/foodBunch.jpg" alt="Bunch of Food">
+				<div class="card-img-overlay d-flex">
+					<div class="my-auto mx-auto" style="text-shadow: 2px 2px 4px #000000">
+						<h1 class="card-title font-weight-bold text-center">Healthy</h1>
+						<p class="card-text text-center">Gives you fresh ingredients to prepare a meal right at home, ensuring great food quality.</p>
+					</div>
+				</div>
+			</div>
+            <div class="card bg-dark text-white rounded-0">
+				<img id="darken-image" class="card-img rounded-0" src="images/cityCars.jpg" alt="Bicycle">
+				<div class="card-img-overlay d-flex">
+					<div class="my-auto mx-auto" style="text-shadow: 2px 2px 4px #000000">
+						<h1 class="card-title font-weight-bold text-center">Fast</h1>
+						<p class="card-text text-center">Brisque's dispatch software is efficient, guaranteeing that the items you need are delivered to you swiftly.</p>
+					</div>
+				</div>
+			</div>
+        </div>
+-->
+        <div class="d-flex mx-auto">
+<img src="images/BrisqueLogo.png" class="img-fluid mx-auto my-5" alt="Responsive image">
+        </div>
+
+		<br><br>
+
+        
+
+        
+      <!-- Javascript stuff -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/w3.js"></script>
+    <script> w3.includeHTML(); </script>
+	</body>
+    
+    <footer class="footer bg-dark">
+        <div class="container">
+            <span class="text-muted">
+                Designed with bootstrap. Brisque is made by a Mr. Tay Heng Jing.
+            </span>
+        </div>
+    </footer>
+    
+</html>
+
